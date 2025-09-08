@@ -1,0 +1,58 @@
+/* styles/Starwall.module.css */
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0b0c17 0%, #1a1c2a 100%);
+  overflow: hidden;
+}
+
+/* Canvas should fill entire container */
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Popup for star info */
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(20, 20, 40, 0.95);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  max-width: 80%;
+  text-align: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.popup h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #f0f0ff;
+}
+
+.popup p {
+  margin: 0;
+  font-size: 1rem;
+  color: #cfcfff;
+  line-height: 1.4;
+}
+
+/* Subtle fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -52%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
