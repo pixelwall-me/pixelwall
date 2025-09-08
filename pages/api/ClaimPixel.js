@@ -1,16 +1,24 @@
-// Random position generation (example canvas size 1920x1080)
-const xPos = Math.random() * 1920;
-const yPos = Math.random() * 1080;
+// pages/api/ClaimPixel.js
+import supabase from "../../lib/supabaseClient";
 
-const { data, error } = await supabase
-  .from('pixelwall')
-  .insert([
-    {
-      name,
-      description: message,
-      locked: false,
-      xPos,
-      yPos,
-    },
-  ])
-  .select();
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    try {
+      const { name, message } = req.body;
+
+      // Insert star into Supabase
+      const { data, error } = await supabase
+        .from("pixelwall")
+        .insert([{ name, message }])
+        .select();
+
+      if (error) throw error;
+
+      res.status(200).json({ data });
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  } else {
+    res.status(405).json({ error: "Method not allowed" });
+  }
+}
