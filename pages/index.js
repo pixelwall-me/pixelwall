@@ -46,7 +46,7 @@ export default function Home() {
       <div className={styles.overlay}></div>
 
       <div className={styles.contentCard}>
-        <h1 className={styles.heading}>✨ Leave Your Mark in the Universe ✨</h1>
+        <h1 className={styles.heading}>Leave Your Mark in the Universe</h1>
         <p className={styles.subheading}>
           Claim your star on the PixelWall and shine forever in the cosmic sky.
         </p>
@@ -77,13 +77,15 @@ export default function Home() {
             <h2>🌟 Your Star is Claimed!</h2>
             <p>
               <strong>Star ID:</strong> {claimedId}
-              <button className={styles.copyBtn} onClick={copyId}>
-                Copy
-              </button>
             </p>
-            <button className={styles.viewBtn} onClick={viewUniverse}>
-              View Universe
-            </button>
+            <div className={styles.actionBtns}>
+              <button className={styles.copyBtn} onClick={copyId}>
+                Copy Star ID
+              </button>
+              <button className={styles.viewBtn} onClick={viewUniverse}>
+                View Universe
+              </button>
+            </div>
           </div>
         )}
       </div>

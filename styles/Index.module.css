@@ -13,36 +13,38 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+  background: radial-gradient(circle at center, rgba(0,0,0,0.7), rgba(0,0,0,0.95));
   z-index: 0;
 }
 
 .contentCard {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
   border-radius: 20px;
   padding: 2rem;
   max-width: 600px;
   text-align: center;
-  box-shadow: 0 0 25px rgba(0, 200, 255, 0.4);
-  animation: fadeIn 1.5s ease;
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.25);
+  animation: fadeIn 1.2s ease;
 }
 
 .heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #ffcc70, #ff8177, #40c9ff, #3a47d5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: glow 2s ease-in-out infinite alternate;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  /* Subtle glow instead of heavy neon */
+  text-shadow: 0 0 6px rgba(255,255,255,0.35), 
+               0 0 14px rgba(150,200,255,0.25);
 }
 
 .subheading {
-  color: #ddd;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
   margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+  text-align: center;
 }
 
 .form input,
@@ -70,46 +72,78 @@
   color: white;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .form button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #40c9ff;
+  box-shadow: 0 0 12px #40c9ff;
 }
 
 .card {
-  margin-top: 1.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 1.5rem;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(255, 255, 0, 0.4);
+  background: rgba(20, 20, 40, 0.85);
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.card h2 {
+  color: #ffd700; /* optional: golden heading for contrast */
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  color: #f0f0f0; /* softer white for paragraph text */
+}
+
+.card strong {
+  color: #40c9ff; /* highlight Star ID label */
 }
 
 .copyBtn,
 .viewBtn {
-  margin-left: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ffcc70, #ff8177);
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.copyBtn {
+  background: #444;
   color: #fff;
 }
 
-.copyBtn:hover,
-.viewBtn:hover {
-  box-shadow: 0 0 10px #ff8177;
+.copyBtn:hover {
+  background: #555;
+  transform: translateY(-2px);
 }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #40c9ff, 0 0 20px #40c9ff;
-  }
-  to {
-    text-shadow: 0 0 20px #ff8177, 0 0 40px #ffcc70;
+.viewBtn {
+  background: #0070f3;
+  color: #fff;
+}
+
+.viewBtn:hover {
+  background: #0059c9;
+  transform: translateY(-2px);
+}
+
+/* Keep action buttons spaced and stacked properly */
+.actionBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .actionBtns {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }
 
