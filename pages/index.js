@@ -44,7 +44,8 @@ export default function Home() {
   return (
     <div className={styles.cosmicContainer}>
       <div className={styles.overlay}></div>
-      <div className={styles.content}>
+
+      <div className={styles.contentCard}>
         <h1 className={styles.heading}>✨ Leave Your Mark in the Universe ✨</h1>
         <p className={styles.subheading}>
           Claim your star on the PixelWall and shine forever in the cosmic sky.

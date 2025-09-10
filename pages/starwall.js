@@ -36,8 +36,14 @@ export default function Starwall() {
 
       const updatedStars = data.map((star) => ({
         ...star,
-        x: typeof star.x === "number" ? star.x : Math.random() * window.innerWidth,
-        y: typeof star.y === "number" ? star.y : Math.random() * window.innerHeight,
+        x:
+          typeof star.x === "number"
+            ? star.x
+            : Math.random() * window.innerWidth,
+        y:
+          typeof star.y === "number"
+            ? star.y
+            : Math.random() * window.innerHeight,
       }));
 
       setStars(updatedStars);
@@ -55,7 +61,14 @@ export default function Starwall() {
           ctx.beginPath();
           ctx.arc(star.x, star.y, radius, 0, Math.PI * 2);
 
-          const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, glowRadius);
+          const gradient = ctx.createRadialGradient(
+            star.x,
+            star.y,
+            0,
+            star.x,
+            star.y,
+            glowRadius
+          );
           gradient.addColorStop(0, `rgba(${color},1)`);
           gradient.addColorStop(1, `rgba(${color},0)`);
           ctx.fillStyle = gradient;
@@ -79,9 +92,11 @@ export default function Starwall() {
     const popupWidth = 220;
     const popupHeight = 120;
 
-    if (x + popupWidth / 2 > window.innerWidth) x = window.innerWidth - popupWidth / 2 - 10;
+    if (x + popupWidth / 2 > window.innerWidth)
+      x = window.innerWidth - popupWidth / 2 - 10;
     if (x - popupWidth / 2 < 0) x = popupWidth / 2 + 10;
-    if (y + popupHeight > window.innerHeight) y = window.innerHeight - popupHeight - 10;
+    if (y + popupHeight > window.innerHeight)
+      y = window.innerHeight - popupHeight - 10;
     if (y < 0) y = 10;
 
     setPopupPos({ x, y });
@@ -101,7 +116,9 @@ export default function Starwall() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.cosmicContainer}>
+      <div className={styles.overlay}></div>
+
       <div className={styles.searchContainer}>
         <input
           type="number"

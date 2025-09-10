@@ -1,165 +1,125 @@
-/* Cosmic background with subtle moving stars */
 .cosmicContainer {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  background: radial-gradient(ellipse at center, #0b0c17 0%, #1a1c2a 100%);
+  min-height: 100vh;
+  width: 100%;
+  background: url("/cosmic-bg.jpg") center/cover no-repeat fixed;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
-  color: white;
-}
-
-/* Optional animated star overlay
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://i.ibb.co/6D3W2T6/stars.png') repeat;
-  animation: moveStars 100s linear infinite;
-  opacity: 0.25;
-  pointer-events: none;
-} */
-
-@keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
-}
-
-/* Centered content */
-.content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
+  justify-content: center;
+  overflow: hidden;
   padding: 2rem;
 }
 
-/* Headings */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.6), rgba(0,0,0,0.95));
+  z-index: 0;
+}
+
+.contentCard {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.4);
+  animation: fadeIn 1.5s ease;
+}
+
 .heading {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #ffe8a1;
-  text-shadow: 0 0 10px #ffe8a1, 0 0 20px #ffcc5c;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffcc70, #ff8177, #40c9ff, #3a47d5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
 .subheading {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #ccc;
-  line-height: 1.5;
-}
-
-/* Form */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .form input,
 .form textarea {
-  padding: 0.8rem;
-  border-radius: 8px;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 12px;
   border: none;
   outline: none;
-  font-size: 1rem;
-  resize: none;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
-.form input:focus,
-.form textarea:focus {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+.form textarea {
+  min-height: 100px;
 }
 
 .form button {
-  padding: 0.8rem;
-  border-radius: 8px;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
   border: none;
-  background: linear-gradient(45deg, #ffcc5c, #ffe8a1);
-  color: #1a1c2a;
-  font-weight: bold;
+  background: linear-gradient(90deg, #40c9ff, #3a47d5);
+  color: white;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .form button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px #ffe8a1;
+  box-shadow: 0 0 15px #40c9ff;
 }
 
-/* Claimed star card */
 .card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 2rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(255, 232, 161, 0.3);
-  animation: glow 2s infinite alternate;
-}
-
-.card h2 {
-  color: #ffe8a1;
-  text-shadow: 0 0 15px #ffe8a1, 0 0 25px #ffcc5c;
-  margin-bottom: 1rem;
-}
-
-.card p {
-  margin-bottom: 1rem;
-  color: #fff;
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.4);
 }
 
 .copyBtn,
 .viewBtn {
-  padding: 0.6rem 1rem;
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  margin-left: 0.5rem;
   font-weight: bold;
-  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #ffcc70, #ff8177);
+  color: #fff;
 }
 
-.copyBtn {
-  background: #444;
-  color: #ffe8a1;
-}
-
-.copyBtn:hover {
-  background: #555;
-}
-
-.viewBtn {
-  background: linear-gradient(45deg, #ffcc5c, #ffe8a1);
-  color: #1a1c2a;
-}
-
+.copyBtn:hover,
 .viewBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ffe8a1;
+  box-shadow: 0 0 10px #ff8177;
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 10px rgba(255,232,161,0.2); }
-  to { box-shadow: 0 0 30px rgba(255,232,161,0.5); }
+  from {
+    text-shadow: 0 0 10px #40c9ff, 0 0 20px #40c9ff;
+  }
+  to {
+    text-shadow: 0 0 20px #ff8177, 0 0 40px #ffcc70;
+  }
 }
 
-.footer {
-  margin-top: 2rem;
-  font-size: 0.85rem;
-  color: #aaa;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
