@@ -62,15 +62,17 @@
 
 .popup {
   position: absolute;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  border-radius: 15px;
-  padding: 1rem;
-  width: 220px;
-  color: white;
-  z-index: 3;
-  animation: fadeIn 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  max-width: 240px; /* control popup width */
+  word-wrap: break-word; /* ensures long words break */
+  white-space: pre-wrap; /* keeps line breaks, wraps text */
+  overflow-wrap: break-word; /* handles long unbroken strings */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  text-align: center;
 }
 
 .popup h3 {
